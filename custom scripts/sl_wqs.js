@@ -1,120 +1,58 @@
 function weapons() {
   
-    var sl_wqs = "";
-    var wowhead_stuff = UrlFetchApp.fetch("https://www.wowhead.com/world-quests/sl/na").getContentText();
-
+  var wowhead_stuff = UrlFetchApp.fetch("https://www.wowhead.com/world-quests/sl/na").getContentText();
+  var profs = ["dmgmax1", "Alchemy", "Blacksmithing", "Cooking", "Enchanting", "Engineering", "Fishing", "Herbalism", "Inscription", "Jewelcrafting", "Leatherworking", "Mining", "Skinning", "Tailoring"];
+  var property;
   
-  var stringsearch = "dmgmax1"
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  var output = "";
-  if(count > 0)
-  {
-    output=  count + "⚔️ ";
+  for(property in profs) {
+    var output = "";
+    for(var count=-1, index=-2; index != -1; count++, index=wowhead_stuff.indexOf(profs[property],index+1) );
+      if(count > 0) {
+        switch(profs[property]){
+          case "dmgmax1":
+            output = output + count + "⚔️ ";
+            break;
+          case "Alchemy":
+            output = output + count + "⚗️ ";
+            break;
+          case "Blacksmithing":
+            output = output + count + "⚒️ ";
+            break;
+          case "Cooking":
+            output = output + count + "🔥 ";
+            break;
+          case "Enchanting":
+            output = output + count + "✨ ";
+            break;
+          case "Engineering":
+            output = output + count + "🛠️ ";
+            break;
+          case "Fishing":
+            output = output + count + "🎣 ";
+            break;
+          case "Herbalism":
+            output = output + count + "🌿 ";
+            break;
+          case "Inscription":
+            output = output + count + "📜 ";
+            break;
+          case "Jewelcrafting":
+            output = output + count + "💎 ";
+            break;
+          case "Leatherworking":
+            output = output + count + "💼 ";
+            break;
+          case "Mining":
+            output = output + count + "⛏️ ";
+            break;
+          case "Skinning":
+            output = output + count + "🔪 ";
+            break;
+          case "Tailoring":
+            output = output + count + "🧵 ";
+            break;
+        }
+      }
   }
-  
-  stringsearch = "Alchemy"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "⚗️ ";
-  }
-  
-  stringsearch = "Blacksmithing"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "⚒️ ";
-  }
-  
-  stringsearch = "Cooking"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "🔥 ";
-  }
-  
-  stringsearch = "Enchanting"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "✨ ";
-  }
-  
-  stringsearch = "Engineering"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "🛠️ ";
-  }
-  
-  stringsearch = "Fishing"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "🎣 ";
-  }
-  
-  stringsearch = "Herbalism"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "🌿 ";
-  }
-  
-  stringsearch = "Inscription"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "📜 ";
-  }
-  
-  stringsearch = "Jewelcrafting"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "💎 ";
-  }
-  
-  stringsearch = "Leatherworking"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "💼 ";
-  }
-  
-  stringsearch = "Mining"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "⛏️ ";
-  }
-  
-  stringsearch = "Skinning"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "🔪 ";
-  }
-  
-  stringsearch = "Tailoring"
-  
-  for(var count=-1,index=-2; index != -1; count++,index=wowhead_stuff.indexOf(stringsearch,index+1) );
-  if(count > 0)
-  {
-    output = output + count + "🧵 ";
-  }
-  
   return output;
 }
