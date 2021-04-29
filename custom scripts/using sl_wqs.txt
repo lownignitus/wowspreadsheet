@@ -1,0 +1,3 @@
+add this line to a cell
+
+=hyperlink("http://www.wowhead.com/world-quests/na", weapons(A1))
